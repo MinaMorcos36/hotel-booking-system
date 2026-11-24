@@ -1,0 +1,38 @@
+﻿@page
+@model HotelBooking.Web.Pages.RoomCategories.IndexModel
+@{
+    ViewData["Title"] = "Room Categories";
+}
+<h1>Room Categories</h1>
+@if (!Model.RoomCategories.Any())
+{
+    <p>No room categories found.</p>
+}
+else
+{
+    <a asp-page="Create" class="btn btn-primary mb-3">Add category</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category Name</th>
+                <th>Capacity</th>
+                <th>Price Per Night</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.RoomCategories)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                    <td>@category.Capacity</td>
+                    <td>@category.Price.ToString("C")</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@category.Id" class="btn btn-primary">Edit</a>
+                        <a asp-page="./Delete" asp-route-id="@category.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

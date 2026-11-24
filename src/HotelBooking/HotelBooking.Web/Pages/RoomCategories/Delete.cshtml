@@ -1,0 +1,15 @@
+﻿@page "{id:int}"
+@model HotelBooking.Web.Pages.RoomCategories.DeleteModel
+@{
+    ViewData["Title"] = "Delete Room Category";
+}
+<h1>Delete Room Category</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<p>Are you sure you want to delete <strong>@Model.RoomCategory.Name</strong>?</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@model HotelBooking.Web.Pages.RoomCategories.EditModel
+@{
+    ViewData["Title"] = "Edit Room Category";
+}
+
+<h1>Edit Room Category</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Input.Name" class="form-label"></label>
+        <input asp-for="Input.Name" class="form-control" />
+        <span asp-validation-for="Input.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Input.Capacity" class="form-label"></label>
+        <input asp-for="Input.Capacity" class="form-control" />
+        <span asp-validation-for="Input.Capacity" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Input.Price" class="form-label"></label>
+        <input asp-for="Input.Price" class="form-control" />
+        <span asp-validation-for="Input.Price" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
